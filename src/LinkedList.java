@@ -50,18 +50,17 @@ public class LinkedList<T> {
         }
 
         Node<T> newNode = new Node<>(value);
-        //in the beginning
         if (index == 0){
             if (this.head != null) {
                 this.head.setPreviousNode(newNode);
                 newNode.setNextNode(this.head);
             }
             this.head = newNode;
-        } else if(index == this.size){ // in the end
+        } else if(index == this.size){
             this.tail.setNextNode(newNode);
             newNode.setPreviousNode(this.tail);
             this.tail = newNode;
-        } else { //in the middle
+        } else {
             int currentIndex = 1;
             Node<T> currentNode = this.head.getNextNode();
 
@@ -83,7 +82,6 @@ public class LinkedList<T> {
         if (index > size){
             throw new IndexOutOfBoundsException();
         }
-        //in the beginning
         if (index == 0){
             if (head != null) {
                 head.getNextNode().setPreviousNode(null);
@@ -91,10 +89,10 @@ public class LinkedList<T> {
             } else {
                 throw new IndexOutOfBoundsException();
             }
-        } else if(index == size){ // in the end
+        } else if(index == size){
             tail.getPreviousNode().setNextNode(null);
             tail = tail.getPreviousNode();
-        } else { //in the middle
+        } else {
             int currentIndex = 1;
             Node<T> currentNode = head.getNextNode();
 
